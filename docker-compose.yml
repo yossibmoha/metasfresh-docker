@@ -44,7 +44,7 @@ webapi:
 # (eg. for debugging or connecting your app to the metasfresh api) 
 # uncomment following port:
   ports:
-   - "9090:9090"
+   - "8080:8080"
   restart: always
   volumes:
     - ./volumes/webapi/log:/opt/metasfresh-webui-api/log:rw
@@ -64,7 +64,7 @@ webui:
     - /etc/timezone:/etc/timezone:ro
   #uncomment and set to URL where metasfresh will be available from browsers
   environment:
-    - WEBAPI_URL=http://localhost:9090
+    - WEBAPI_URL=http://localhost:8080
 rabbitmq:
   build: rabbitmq
   expose:
@@ -92,9 +92,9 @@ search:
 # to access the search api directly
 # (e.g. if you did docker-compose up search to have the deachboard with your locally running metasfresh services)
 # uncomment following ports:
-# ports:
-#   - "9200:9200"
-#   - "9300:9300"
+ ports:
+   - "9200:9200"
+   - "9300:9300"
   volumes:
     - ./volumes/search/data:/usr/share/elasticsearch/data
     - /etc/localtime:/etc/localtime:ro
