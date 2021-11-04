@@ -92,9 +92,9 @@ search:
 # to access the search api directly
 # (e.g. if you did docker-compose up search to have the deachboard with your locally running metasfresh services)
 # uncomment following ports:
- ports:
-   - "9200:9200"
-   - "9300:9300"
+# ports:
+ #  - "9200:9200"
+ #  - "9300:9300"
   volumes:
     - ./volumes/search/data:/usr/share/elasticsearch/data
     - /etc/localtime:/etc/localtime:ro
